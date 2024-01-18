@@ -1,4 +1,4 @@
-import NavigationButton from '@/components/NavigationButton';
+import SignUpForm from '@/components/forms/SignUpForm';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
@@ -10,7 +10,7 @@ const SignUpPage = () => {
   return (
     <main>
       <h1>Sign Up</h1>
-      <NavigationButton href="/feed">(pretend like you signed)</NavigationButton>
+      <SignUpForm />
       <p>
         Already have an account? <Link href="/signin">Sign In</Link>
       </p>

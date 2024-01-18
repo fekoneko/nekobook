@@ -1,13 +1,17 @@
 'use client';
 
+import useAuth from '@/hooks/useAuth';
 import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 
 const RedirectToMyPage = () => {
-  const auth = { username: '@user' }; // TOFO: authContext
+  const auth = useAuth();
   const router = useRouter();
 
-  if (auth) router.push(`/user/${auth.username}`);
-  else router.push('/signin');
+  useEffect(() => {
+    if (auth) router.push(`/user/${auth.username}`);
+    else router.push('/signin');
+  });
 
   return null;
 };
