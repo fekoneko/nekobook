@@ -1,6 +1,7 @@
 import ProviderWrapper from '@/components/ProviderWrapper';
 import { AuthProvider } from '@/contexts/AuthContext';
 import type { Metadata } from 'next';
+import '@/styles/globalStyles.css';
 
 export const metadata: Metadata = {
   title: 'Nekobook',

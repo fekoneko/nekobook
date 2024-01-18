@@ -9,19 +9,17 @@ interface NavigationButtonProps
   > {
   href: string;
 }
-const NavigationButton = ({ href, children, onClick, ...buttonProps }: NavigationButtonProps) => {
+const NavigationButton = ({ href, ...buttonProps }: NavigationButtonProps) => {
   const router = useRouter();
 
   return (
     <button
+      {...buttonProps}
       onClick={(e) => {
-        onClick && onClick(e);
+        buttonProps.onClick && buttonProps.onClick(e);
         router.push(href);
       }}
-      {...buttonProps}
-    >
-      {children}
-    </button>
+    />
   );
 };
 export default NavigationButton;
