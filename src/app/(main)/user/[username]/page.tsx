@@ -13,9 +13,9 @@ interface UserPageProps {
 }
 const UserPage = ({ params }: UserPageProps) => {
   return (
-    <>
-      <h1>{decodeURIComponent(params.username)}&apos;s Page</h1>
-    </>
+    <div className="w-full">
+      <h1 className="font-bold text-3xl">{decodeURIComponent(params.username)}&apos;s Page</h1>
+    </div>
   );
 };
 export default UserPage;

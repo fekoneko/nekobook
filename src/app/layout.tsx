@@ -13,8 +13,8 @@ interface RootLayoutProps {
 }
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en">
-      <body>
+    <html data-theme="dark" lang="en">
+      <body className="w-svw h-svh bg-bg-primary text-text-primary">
         <ProviderWrapper providers={[AuthProvider]}>{children}</ProviderWrapper>
       </body>
     </html>

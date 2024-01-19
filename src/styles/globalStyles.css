@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  * {
+    min-height: 0;
+    min-width: 0;
+  }
+  a {
+    @apply underline hover:text-text-accent transition-colors;
+  }
+  button {
+    @apply border-[1.5px] border-text-primary hover:bg-text-primary hover:text-bg-primary transition-colors rounded-md font-semibold py-1 px-3;
+  }
+}

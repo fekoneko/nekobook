@@ -6,10 +6,14 @@ interface MainLayoutProps {
 }
 export default function MainLayout({ children }: MainLayoutProps) {
   return (
-    <>
+    <div className="flex flex-col w-full h-full">
       <Header />
-      <Sidebar />
-      <main>{children}</main>
-    </>
+      <div className="flex grow">
+        <Sidebar />
+        <main className="flex grow">
+          <div className="grow">{children}</div>
+        </main>
+      </div>
+    </div>
   );
 }

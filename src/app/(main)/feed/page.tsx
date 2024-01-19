@@ -8,7 +8,9 @@ export const metadata: Metadata = {
 const FeedPage = () => {
   return (
     <AuthRequired>
-      <h1>Feed</h1>
+      <div className="w-full">
+        <h1 className="font-bold text-3xl">Feed</h1>
+      </div>
     </AuthRequired>
   );
 };

@@ -11,8 +11,10 @@ interface MessengerLayoutProps {
 const MessengerLayout = ({ children }: MessengerLayoutProps) => {
   return (
     <AuthRequired>
-      <div>Chat List</div>
-      <div>{children}</div>
+      <div className="w-full h-full flex py-2 pr-3 gap-2">
+        <div className="w-60 rounded-lg border-2 border-bg-accent">Chats List</div>
+        <div className="grow rounded-lg border-2 border-bg-accent">{children}</div>
+      </div>
     </AuthRequired>
   );
 };
