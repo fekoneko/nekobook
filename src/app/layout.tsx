@@ -1,7 +1,6 @@
-import ProviderWrapper from '@/components/ProviderWrapper';
-import { AuthProvider } from '@/contexts/AuthContext';
 import type { Metadata } from 'next';
 import '@/styles/globalStyles.css';
+import NextAuthProvider from '@/components/NextAuthProvider';
 
 export const metadata: Metadata = {
   title: 'Nekobook',
@@ -15,7 +14,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html data-theme="dark" lang="en">
       <body className="w-svw h-svh bg-bg-primary text-text-primary">
-        <ProviderWrapper providers={[AuthProvider]}>{children}</ProviderWrapper>
+        <NextAuthProvider>{children}</NextAuthProvider>
       </body>
     </html>
   );

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import NavigationButton from '../NavigationButton';
+import UserButton from './UserButton';
 
 const Header = () => {
   return (
@@ -9,7 +9,7 @@ const Header = () => {
           Nekobook
         </Link>
       </h1>
-      <NavigationButton href="/user" className="p-0 rounded-full h-8 w-8"></NavigationButton>
+      <UserButton />
     </header>
   );
 };

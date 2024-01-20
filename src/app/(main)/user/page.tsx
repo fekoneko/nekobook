@@ -1,15 +1,16 @@
 'use client';
 
-import useAuth from '@/hooks/useAuth';
+import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 
 const RedirectToMyPage = () => {
-  const auth = useAuth();
+  const session = useSession();
   const router = useRouter();
 
   useEffect(() => {
-    if (auth) router.push(`/user/${auth.username}`);
+    if (session.data?.user?.name !== undefined) router.push(`/user/${session.data?.user?.name}`);
+    // TODO: add @username to DEFENITELY determine user
     else router.push('/signin');
   });
 

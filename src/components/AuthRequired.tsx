@@ -1,21 +1,22 @@
 'use client';
 
-import useAuth from '@/hooks/useAuth';
+import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 
 interface AuthRequiredProps {
+  fallback?: React.ReactElement;
   children: React.ReactNode;
 }
-const AuthRequired = ({ children }: AuthRequiredProps) => {
-  const auth = useAuth();
+const AuthRequired = ({ fallback, children }: AuthRequiredProps) => {
+  const session = useSession();
   const router = useRouter();
 
   useEffect(() => {
-    if (!auth) router.push('/signin');
-  }, [auth, router]);
+    if (session.status !== 'authenticated' && !fallback) router.push('/signin');
+  }, [session, fallback, router]);
 
-  if (auth) return children;
-  else return null;
+  if (session.status === 'authenticated') return children;
+  else return fallback;
 };
 export default AuthRequired;

@@ -1,21 +1,23 @@
 'use client';
 
-import { useContext } from 'react';
-import NavigationButton from '../NavigationButton';
-import AuthContext from '@/contexts/AuthContext';
+import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
+import OAuthButton from './OAuthButton';
 
 const SignInForm = () => {
-  const { setAuth } = useContext(AuthContext);
+  const session = useSession();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (session.status === 'authenticated') router.push('/feed');
+  }, [session, router]);
 
   return (
-    <form onSubmit={(e) => e.preventDefault()}>
-      <NavigationButton
-        href="/feed"
-        onClick={() => setAuth({ username: 'fekoneko', accessToken: 'very-secure-token' })}
-      >
-        (pretend like you signed in)
-      </NavigationButton>
-    </form>
+    <>
+      <form onSubmit={(e) => e.preventDefault()}></form>
+      <OAuthButton />
+    </>
   );
 };
 export default SignInForm;

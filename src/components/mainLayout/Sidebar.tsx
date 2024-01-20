@@ -32,7 +32,6 @@ const Sidebar = () => {
   links.forEach((link) => {
     if ('/' + pathname.split('/')[1] === link.href) link.active = true;
     else link.active = false;
-    console.log(pathname);
   });
 
   return (
