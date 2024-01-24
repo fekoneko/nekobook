@@ -3,7 +3,7 @@
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
-import OAuthButton from './OAuthButton';
+import NextAuthButton from './NextAuthButton';
 
 const SignInForm = () => {
   const session = useSession();
@@ -16,7 +16,7 @@ const SignInForm = () => {
   return (
     <>
       <form onSubmit={(e) => e.preventDefault()}></form>
-      <OAuthButton />
+      <NextAuthButton />
     </>
   );
 };
